@@ -56,7 +56,7 @@ function ConwayBoard() {
         <div className="board">
             <Button
                 text="clear"
-                bgColor="red-500"
+                bgColor="bg-red-500"
                 handleClick={() => setBoardState(initializeBoardState())}/>
             <div>
                 {rows}
@@ -64,17 +64,17 @@ function ConwayBoard() {
             <div className="flex flex-row items-stretch">
                 <Button 
                     text="next" 
-                    bgColor="blue-400" 
+                    bgColor="bg-blue-400" 
                     handleClick={() => setBoardState(boardTick)} />
 
                 {!isPlaying && <Button
                     text="play"
-                    bgColor="green-400"
+                    bgColor="bg-green-400"
                     handleClick={() => setIsPlaying(true)}/>}
 
                 {isPlaying && <Button
                     text="stop"
-                    bgColor="red-400"
+                    bgColor="bg-red-400"
                     handleClick={() => setIsPlaying(false)}/>}
             </div>
             
