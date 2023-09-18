@@ -20,10 +20,8 @@ function ConwaySquare({
     col: number;
     toggleSquare: (row: number, col: number) => void;
   }) {
-    let baseClasses = "flex flex-row space-x-3 border border-black w-6 h-6";
-    if (isToggled) {
-        baseClasses = baseClasses.concat(' bg-yellow-300');
-    }
+    const baseClasses = 
+        `${isToggled ? 'bg-yellow-300' : '' } flex flex-row space-x-3 border border-black w-6 h-6`;
     
     return (
         <div className={baseClasses} onClick={() => toggleSquare(row,col)}>      
