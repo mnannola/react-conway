@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { boardTick } from "./utilities/boardTick";
 import { useInterval } from "./hooks/useInterval";
+import { Button } from "./components/Button";
 
 const BOARD_ROW_COUNT = 25;
 
@@ -53,26 +54,28 @@ function ConwayBoard() {
     
     return (        
         <div className="board">
-            <button 
-                className="bg-red-500 py-2 px-4 my-2 rounded"
-                onClick={() => setBoardState(initializeBoardState())}>clear</button>
+            <Button
+                text="clear"
+                bgColor="red-500"
+                handleClick={() => setBoardState(initializeBoardState())}/>
             <div>
                 {rows}
             </div>
             <div className="flex flex-row items-stretch">
-                <button
-                    className="bg-blue-400 py-2 px-4 my-2 mx-2 rounded"
-                    onClick={() => setBoardState(boardTick)}
-                    >next round</button>
+                <Button 
+                    text="next" 
+                    bgColor="blue-400" 
+                    handleClick={() => setBoardState(boardTick)} />
 
-                {!isPlaying && <button 
-                    className="bg-green-400 py-2 px-4 my-2 mx-2 rounded"
-                    onClick={() => setIsPlaying(true)}
-                    >play</button>}
+                {!isPlaying && <Button
+                    text="play"
+                    bgColor="green-400"
+                    handleClick={() => setIsPlaying(true)}/>}
 
-                {isPlaying && <button
-                    className="bg-red-400 py-2 px-4 my-2 mx-2 rounded"
-                    onClick={() => setIsPlaying(false)}>stop</button>}
+                {isPlaying && <Button
+                    text="stop"
+                    bgColor="red-400"
+                    handleClick={() => setIsPlaying(false)}/>}
             </div>
             
         </div>
