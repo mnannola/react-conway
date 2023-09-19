@@ -45,25 +45,18 @@ function ConwayBoard() {
     }
 
     const rows = boardState.map((row, i) => (
-        <div className="flex flex-row">
+        <div className="flex flex-row flex-nowrap">
             {row.map((square, j) => <ConwaySquare isToggled={square} row={i} col={j} toggleSquare={toggleSquare}/>)}
         </div>
     ));
     
-    return (        
-        <div className="board">
-            <Button
-                text="clear"
-                bgColor="bg-red-500"
-                handleClick={() => setBoardState(initializeBoardState())}/>
-            <div>
-                {rows}
-            </div>
-            <div className="flex flex-row items-stretch">
+    return (
+        <div className="flex flex-col p-2">
+            <div className="flex flex-row">
                 <Button 
-                    text="next" 
-                    bgColor="bg-blue-400" 
-                    handleClick={() => setBoardState(boardTick)} />
+                        text="next" 
+                        bgColor="bg-blue-400" 
+                        handleClick={() => setBoardState(boardTick)} />
 
                 {!isPlaying && <Button
                     text="play"
@@ -74,9 +67,16 @@ function ConwayBoard() {
                     text="stop"
                     bgColor="bg-red-400"
                     handleClick={() => setIsPlaying(false)}/>}
-            </div>
-            
-        </div>
+
+                <Button
+                    text="clear"
+                    bgColor="bg-red-500"
+                    handleClick={() => setBoardState(initializeBoardState())}/>
+            </div>            
+            <div className="w-[600px] h-[600px] overflow-scroll">
+                {rows}
+            </div>            
+        </div>               
     )
 }
 

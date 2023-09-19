@@ -2,7 +2,7 @@ import { ConwayBoard } from "./Conway"
 
 function App() {  
   return (
-    <div className="flex w-full h-screen justify-center items-center">
+    <div className="flex">
       <ConwayBoard/>
     </div>
   )
